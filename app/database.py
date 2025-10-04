@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql+psycopg2://postgres:postgres@localhost:5432/caffe_flux')
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:toBqhBcHNmbrhvsKWbtbCliyxxHXetWo@postgres.railway.internal:5432/railway')
 
 # engine with future flag for SQLAlchemy 2
 engine = create_engine(DATABASE_URL, future=True)
