@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI
+from app.database import init_db  # porque database.py está dentro de /app
 from dotenv import load_dotenv
 from app.database import engine, Base
 from app.routers import products, jerarquia, mesas, pedidos, turnos, pagos
