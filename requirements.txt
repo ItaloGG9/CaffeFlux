@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+uvloop
+httptools
+psycopg2-binary
+sqlalchemy
+python-dotenv
