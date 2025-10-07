@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
-from .database import engine, Base
+from app.database import engine, Base
 from .routers import products, jerarquia, mesas, pedidos, turnos, pagos
 
 load_dotenv()
