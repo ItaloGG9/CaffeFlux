@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() # poner el ubicacion de archivo de la base de datos que se sube con pgadmin4
 
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:1123@postgres.railway.internal:5432/railway')
 
