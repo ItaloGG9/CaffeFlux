@@ -1,14 +1,19 @@
-import os
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
-from dotenv import load_dotenv
+from sqlalchemy import text
 
-load_dotenv() # poner el ubicacion de archivo de la base de datos que se sube con pgadmin4
+def init_db():
+    sql_path = os.path.join(os.path.dirname(__file__), "..", "sql", "init_db.sql")
+    if os.path.exists(sql_path):
+        with engine.connect() as connection:
+            with open(sql_path, "r", encoding="utf-8") as f:
+                sql_commands = f.read()
+            connection.execute(text(sql_commands))
+            connection.commit()
+            print("✅ Base de datos inicializada con init_db.sql")
+    else:
+        print("⚠️ No se encontró init_db.sql")
 
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:1123@postgres.railway.internal:5432/railway')
-
-# engine with future flag for SQLAlchemy 2
-engine = create_engine(DATABASE_URL, future=True)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, future=True)
-
-Base = declarative_base()
+# Ejecutar init_db() al iniciar (solo la primera vez)
+try:
+    init_db()
+except Exception as e:
+    print(f"Error al inicializar la base de datos: {e}")
