@@ -1,16 +1,14 @@
-#!/usr/bin/env python
-import os
-import sys
+# main.py
+from fastapi import FastAPI
 
-def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'caffeflux.settings')
-    try:
-        from django.core.management import execute_from_command_line
-    except ImportError as exc:
-        raise ImportError(
-            "Couldn't import Django."
-        ) from exc
-    execute_from_command_line(sys.argv)
+app = FastAPI()
 
-if __name__ == '__main__':
-    main()
+# Ejemplo de ruta principal
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI en Render!"}
+
+# Opcional: más rutas
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    return {"item_id": item_id}
