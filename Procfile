@@ -1,1 +1,1 @@
-web: gunicorn caffeflux.wsgi --log-file -
+web: gunicorn caffeflux.wsgi
