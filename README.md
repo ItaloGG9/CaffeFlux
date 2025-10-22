@@ -1,4 +1,4 @@
-# CafféFlux - Backend (Django + SQLite)
+# CafféFlux - Backend (Python + SQLite)
 
 API REST para la cafetería CafféFlux. Conectable a frontend en React.
 
